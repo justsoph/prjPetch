@@ -10,7 +10,10 @@ window.onload = function(){
     fetch(`https://viacep.com.br/ws/${ cep.value }/json/`, opcoes)
       .then(response => {response.json()
         .then(data => {
-          document.querySelector("#cep").value = data['uf', 'localidade', 'logradouro'];
+          document.querySelector("#estado").value = data['uf'];
+          document.querySelector("#cidade").value = data['localidade'];
+          document.querySelector("#bairro").value = data['bairro'];
+          document.querySelector("#logradouro").value = data['logradouro'];
         })
       })
   });
